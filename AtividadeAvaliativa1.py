@@ -6,7 +6,7 @@ def thread_func(num, ini, fim):
     global end
     num_float = float(num)
     for i in range(int(ini), int(fim)):
-        if end: return False
+        if end: return
         if (num_float / i).is_integer():
             end = True
 
