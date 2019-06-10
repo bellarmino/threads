@@ -4,17 +4,11 @@ import threading
 
 def thread_func(num, ini, fim):
     global end
-    #print('Thread', threading.get_ident(), 'verificando numero {} no intervalo {} a {}'.format(num, ini, fim-1))
     num_float = float(num)
     for i in range(int(ini), int(fim)):
-        #print (i)
         if end: return False
         if (num_float / i).is_integer():
-            #print (i, " - False \n")
             end = True
-            return False
-        #print(i, " - True\n")
-    return True
 
 
 def check_prime(num):
@@ -36,13 +30,8 @@ def check_prime(num):
     t1.join()
     t2.join()
 
-    if end:
-        #print("O número {} não é primo.".format(num))
-        return False
-    else:
-        #print("O número {} é primo.".format(num))
-        return True
+    return not end
 
 
 if __name__ == "__main__":
-    print(check_prime(10000000))
+    print(check_prime(10000019))
